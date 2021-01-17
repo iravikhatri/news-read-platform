@@ -1,0 +1,28 @@
+{% extends 'news/base.html' %}
+{{% block content %}
+    <div class="flex justify-center">
+        <div class="w-2/5 px-8 py-8 mt-12 border shadow">
+            <form class="w-full" method="POST">
+                {% csrf_token %}
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                        Username
+                    </label>
+                    {{ form.username }}
+                <span class="text-sm text-red-600 font-medium">{{ form.username.errors }}</span>
+                </div>
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                        Password
+                    </label>
+                    {{ form.password }}
+                    <span class="text-sm text-red-600 font-medium">{{ form.password.errors }}</span>
+                </div>
+                <button class="w-full px-4 py-2 my-4 bg-indigo-700 text-white rounded" type="submit" name="button">Login</button>
+            </form>
+            <div class='mb-1 text-center'>
+                Need an account? <a href="{% url 'signup' %}"><span class="text-indigo-700 font-bold">Signup</span></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

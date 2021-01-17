@@ -2,11 +2,11 @@
 
 {% block content %}
 <div class="w-2/3 py-6">
-    <h1 class="mb-5 text-2xl">Hello Visior, find all latest news here that's matter for world.</h1>
+    <h1 class="mb-5 text-2xl">Hello <span class="text-indigo-700 font-bold">Visitor</span>, find latest news here that's matter.</h1>
     {% for single_news in news %}
     <div class="w-full h-auto p-5 mb-3 flex border shadow">
         <div class="h-48 w-64">
-            <img class="h-48 w-64 w-max-0 border" src={{ single_news.image_url }} alt={{ single_news.title }}>
+            <img class="h-48 w-48 max-w-none border" src={{ single_news.image_url }} alt={{ single_news.title }}>
         </div>
         <div class="pl-5">
             <h3 class="mb-3 text-3xl">{{ single_news.title }}</h3>
