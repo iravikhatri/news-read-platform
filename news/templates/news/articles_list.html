@@ -1,0 +1,15 @@
+{% extends 'news/home.html' %}
+
+{% block dashboard_main %}
+    {% for news_article in news %}
+        <div class="w-full h-auto p-5 mb-3 flex border shadow">
+            <div class="h-48 w-64">
+                <img class="h-48 w-48 max-w-none border" src={{ news_article.image_url }} alt={{ news_article.title }}>
+            </div>
+            <div class="pl-5">
+                <h3 class="mb-3 text-3xl">{{ news_article.title }}</h3>
+                <p class="">{{ news_article.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

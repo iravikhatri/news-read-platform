@@ -1,0 +1,29 @@
+{% extends 'news/home.html' %}
+
+{% block dashboard_main %}
+    <form class="w-full" method="POST">
+        {% csrf_token %}
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2">
+                Image URL
+            </label>
+            {{ form.image_url }}
+            <span class="text-sm text-red-600 font-medium">{{ form.image_url.errors }}</span>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2">
+                Title
+            </label>
+            {{ form.title }}
+            <span class="text-sm text-red-600 font-medium">{{ form.title.errors }}</span>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2">
+                Content
+            </label>
+            {{ form.content }}
+            <span class="text-sm text-red-600 font-medium">{{ form.content.errors }}</span>
+        </div>
+        <button class="float-right px-8 py-2 my-4 bg-indigo-700 text-white rounded" type="submit" name="button">Create</button>
+    </form>
+{% endblock %}

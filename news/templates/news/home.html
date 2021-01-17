@@ -1,18 +1,46 @@
 {% extends 'news/base.html' %}
 
 {% block content %}
-<div class="w-2/3 py-6">
-    <h1 class="mb-5 text-2xl">Hello <span class="text-indigo-700 font-bold">Visitor</span>, find latest news here that's matter.</h1>
-    {% for single_news in news %}
-    <div class="w-full h-auto p-5 mb-3 flex border shadow">
-        <div class="h-48 w-64">
-            <img class="h-48 w-48 max-w-none border" src={{ single_news.image_url }} alt={{ single_news.title }}>
-        </div>
-        <div class="pl-5">
-            <h3 class="mb-3 text-3xl">{{ single_news.title }}</h3>
-            <p class="">{{ single_news.content }}</p>
-        </div>
+<div class="flex">
+    <div class="w-300 h-dashboard bg-indigo-700">
+        {% if user.is_authenticated %}
+            <div class="px-5 pt-5 text-center text-white">
+                <a class="block px-4 py-2 bg-indigo-900 rounded" href="{% url 'create_article' %}">Create an article</a>
+            </div>
+        {% endif %}
+        <ul class="px-3 py-3 text-white text-sm">
+            <li class="">
+                <a class="w-full flex items-center px-4 py-2 hover:bg-indigo-800 rounded" href="{% url 'home' %}">
+                    <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="18" height="18" x="0" y="0" viewBox="0 0 986.8 986.8" style="enable-background:new 0 0 512 512">
+                        <path d="M399.8,164.649H110.5c-22.1,0-40,17.9-40,40c0,22.1,17.9,40,40,40h289.3c22.101,0,40-17.9,40-40   C439.8,182.55,421.9,164.649,399.8,164.649z" fill="#ffffff" data-original="#000000" style=""/>
+                        <path d="M399.8,450.85H206.5c-22.1,0-40,17.9-40,40c0,22.099,17.9,40,40,40h193.3c22.101,0,40-17.9,40-40   C439.8,468.75,421.9,450.85,399.8,450.85z" fill="#ffffff" data-original="#000000" style=""/>
+                        <path d="M399.8,307.75H40c-22.1,0-40,17.9-40,40s17.9,40,40,40h359.8c22.101,0,40-17.9,40-40S421.9,307.75,399.8,307.75z" fill="#ffffff" data-original="#000000" style=""/>
+                        <path d="M399.8,594.05H40c-22.1,0-40,17.898-40,40c0,22.1,17.9,40,40,40h359.8c22.101,0,40-17.9,40-40   C439.8,611.949,421.9,594.05,399.8,594.05z" fill="#ffffff" data-original="#000000" style=""/>
+                        <path d="M399.8,737.15H40c-22.1,0-40,17.9-40,40s17.9,40,40,40h359.8c22.101,0,40-17.9,40-40S421.9,737.15,399.8,737.15z" fill="#ffffff" data-original="#000000" style=""/>
+                        <path d="M926.8,160.25H572.4c-33.101,0-60,26.9-60,60V766.55c0,33.1,26.899,60,60,60H926.8c33.101,0,60-26.9,60-60V220.25   C986.8,187.05,960,160.25,926.8,160.25z" fill="#ffffff" data-original="#000000" style=""/>
+                    </svg>
+                    All Articles
+                </a>
+            </li>
+            {% if user.is_authenticated %}
+                <li class="">
+                    <a class="w-full flex items-center px-4 py-2 hover:bg-indigo-800 rounded" href="{% url 'my_articles' %}">
+                        <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="18" height="18" x="0" y="0" viewBox="0 0 986.8 986.8" style="enable-background:new 0 0 512 512">
+                            <path d="M399.8,164.649H110.5c-22.1,0-40,17.9-40,40c0,22.1,17.9,40,40,40h289.3c22.101,0,40-17.9,40-40   C439.8,182.55,421.9,164.649,399.8,164.649z" fill="#ffffff" data-original="#000000" style=""/>
+                            <path d="M399.8,450.85H206.5c-22.1,0-40,17.9-40,40c0,22.099,17.9,40,40,40h193.3c22.101,0,40-17.9,40-40   C439.8,468.75,421.9,450.85,399.8,450.85z" fill="#ffffff" data-original="#000000" style=""/>
+                            <path d="M399.8,307.75H40c-22.1,0-40,17.9-40,40s17.9,40,40,40h359.8c22.101,0,40-17.9,40-40S421.9,307.75,399.8,307.75z" fill="#ffffff" data-original="#000000" style=""/>
+                            <path d="M399.8,594.05H40c-22.1,0-40,17.898-40,40c0,22.1,17.9,40,40,40h359.8c22.101,0,40-17.9,40-40   C439.8,611.949,421.9,594.05,399.8,594.05z" fill="#ffffff" data-original="#000000" style=""/>
+                            <path d="M399.8,737.15H40c-22.1,0-40,17.9-40,40s17.9,40,40,40h359.8c22.101,0,40-17.9,40-40S421.9,737.15,399.8,737.15z" fill="#ffffff" data-original="#000000" style=""/>
+                            <path d="M926.8,160.25H572.4c-33.101,0-60,26.9-60,60V766.55c0,33.1,26.899,60,60,60H926.8c33.101,0,60-26.9,60-60V220.25   C986.8,187.05,960,160.25,926.8,160.25z" fill="#ffffff" data-original="#000000" style=""/>
+                        </svg>
+                        My Articles
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
     </div>
-    {% endfor %}
+    <div class="w-full h-dashboard py-5 px-5 overflow-y-scroll">
+        {% block dashboard_main %}{% endblock %}
+    </div>
 </div>
 {% endblock %}

@@ -1,3 +1,7 @@
-h1 {
-    color: red
+.w-300 {
+    width: 300px;
+}
+
+.h-dashboard{
+    height: calc(100vh - 56px);
 }

@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 inputClass = """w-full py-2 px-4 mb-1 bg-gray-300 text-gray-700 leading-tight rounded border-2
-    border-gray-300 appearance-none focus:outline-none focus:bg-white focus:border-primary"""
+    border-gray-300 appearance-none focus:outline-none focus:bg-white focus:border-indigo-700"""
 
 
 class UserSignupForm(UserCreationForm):
